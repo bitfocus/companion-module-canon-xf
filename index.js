@@ -1,4 +1,4 @@
-// Canon XF
+ // Canon XF
 
 var instance_skel = require('../../instance_skel');
 var debug;
@@ -18,6 +18,95 @@ function instance(system, id, config) {
 instance.prototype.acid = '';
 instance.prototype.authlevel = 'full';
 instance.prototype.seq = 1;
+instance.prototype.kelvin_values = [
+    { id: '2000', label: '2000 K' },
+    { id: '2020', label: '2020 K' },
+	{ id: '2040', label: '2040 K' },
+    { id: '2060', label: '2060 K' },
+    { id: '2080', label: '2080 K' },
+    { id: '2110', label: '2110 K' },
+    { id: '2130', label: '2130 K' },
+    { id: '2150', label: '2150 K' },
+    { id: '2170', label: '2170 K' },
+    { id: '2200', label: '2200 K' },
+    { id: '2250', label: '2250 K' },
+    { id: '2270', label: '2270 K' },
+    { id: '2300', label: '2300 K' },
+    { id: '2330', label: '2330 K' },
+    { id: '2350', label: '2350 K' },
+    { id: '3280', label: '3280 K' },
+    { id: '2410', label: '2410 K' },
+    { id: '2440', label: '2440 K' },
+    { id: '2470', label: '2470 K' },
+    { id: '2500', label: '2500 K' },
+    { id: '2530', label: '2530 K' },
+    { id: '2560', label: '2560 K' },
+    { id: '2600', label: '2600 K' },
+    { id: '2630', label: '2630 K' },
+    { id: '2670', label: '2670 K' },
+    { id: '2700', label: '2700 K' },
+    { id: '2740', label: '2740 K' },
+    { id: '2780', label: '2780 K' },
+    { id: '2820', label: '2820 K' },
+    { id: '2860', label: '2860 K' },
+    { id: '2900', label: '2900 K' },
+    { id: '2940', label: '2940 K' },
+    { id: '2990', label: '2990 K' },
+    { id: '3030', label: '3030 K' },
+    { id: '3080', label: '3080 K' },
+    { id: '3130', label: '3130 K' },
+    { id: '3200', label: '3200 K' },
+    { id: '3230', label: '3230 K' },
+    { id: '3280', label: '3280 K' },
+    { id: '3330', label: '3330 K' },
+    { id: '3390', label: '3390 K' },
+    { id: '3450', label: '3450 K' },
+    { id: '3510', label: '3510 K' },
+    { id: '3570', label: '3570 K' },
+    { id: '3640', label: '3640 K' },
+    { id: '3700', label: '3700 K' },
+    { id: '3770', label: '3770 K' },
+    { id: '3850', label: '3850 K' },
+    { id: '3920', label: '3920 K' },
+    { id: '4000', label: '4000 K' },
+	{ id: '4080', label: '4080 K' },
+	{ id: '4170', label: '4170 K' },
+	{ id: '4300', label: '4300 K' },
+	{ id: '4350', label: '4350 K' },
+	{ id: '4440', label: '4440 K' },
+	{ id: '4550', label: '4550 K' },
+	{ id: '4650', label: '4650 K' },
+	{ id: '4760', label: '4760 K' },
+	{ id: '4880', label: '4880 K' },
+	{ id: '5000', label: '5000 K' },
+	{ id: '5130', label: '5130 K' },
+	{ id: '5260', label: '5260 K' },
+	{ id: '5410', label: '5410 K' },
+	{ id: '5600', label: '5600 K' },
+	{ id: '5710', label: '5710 K' },
+	{ id: '5880', label: '5880 K' },
+	{ id: '6060', label: '6060 K' },
+	{ id: '6300', label: '6300 K' },
+	{ id: '6450', label: '6450 K' },
+	{ id: '6670', label: '6670 K' },
+	{ id: '6900', label: '6900 K' },
+	{ id: '7140', label: '7140 K' },
+	{ id: '7410', label: '7410 K' },
+	{ id: '7690', label: '7690 K' },
+	{ id: '8000', label: '8000 K' },
+	{ id: '8330', label: '8330 K' },
+	{ id: '8700', label: '8700 K' },
+	{ id: '9090', label: '9090 K' },
+	{ id: '9520', label: '9520 K' },
+	{ id: '10000', label: '10000 K' },
+	{ id: '10530', label: '10530 K' },
+	{ id: '11110', label: '11110 K' },
+	{ id: '11760', label: '11760 K' },
+	{ id: '12500', label: '12500 K' },
+	{ id: '13330', label: '13330 K' },
+	{ id: '14290', label: '14290 K' },
+	{ id: '15000', label: '15000 K' }
+];
 
 instance.prototype.init = function () {
 	var self = this;
@@ -274,7 +363,7 @@ instance.prototype.config_fields = function () {
 			id: 'info',
 			width: 12,
 			label: 'Information',
-			value: 'This module will connect to a Canon XF Camera and allow you to control drive/lens parameters.'
+			value: 'This module will connect to a Canon XF Camera and allow you to control parameters and view feedbacks.'
 		},
 		{
 			type: 'textinput',
@@ -332,12 +421,12 @@ instance.prototype.actions = function () {
 					id: 'level',
 					default: 'near1',
 					choices: [
-						{ id: 'near1', label: 'Near 1'},
-						{ id: 'near2', label: 'Near 2'},
-						{ id: 'near3', label: 'Near 3'},
-						{ id: 'far1', label: 'Far 1'},
-						{ id: 'far2', label: 'Far 2'},
-						{ id: 'far3', label: 'Far 3'}
+						{ id: 'near1', label: 'Near 1' },
+						{ id: 'near2', label: 'Near 2' },
+						{ id: 'near3', label: 'Near 3' },
+						{ id: 'far1', label: 'Far 1' },
+						{ id: 'far2', label: 'Far 2' },
+						{ id: 'far3', label: 'Far 3' }
 					]
 				}
 			]
@@ -345,23 +434,23 @@ instance.prototype.actions = function () {
 		'trigger_rec': {
 			label: 'Trigger Recording'
 		},
-		//SD Card Function to be tested.
-		'select_sd' : {
+		'select_sd': {
 			label: 'Select SD Card'
 		},
-		'push_auto_iris' : {
+		//SD Card Function to be tested.
+		'push_auto_iris': {
 			label: 'Push Auto Iris'
 		},
-		'auto_iris' : {
+		'auto_iris': {
 			label: 'Auto Iris Mode'
 		},
-		'manual_iris' : {
+		'manual_iris': {
 			label: 'Manual Iris Mode'
 		},
-		'face_detection_focus' : {
+		'face_detection_focus': {
 			label: 'Face Detection Focus'
 		},
-		'zoom_preset' : {
+		'zoom_preset': {
 			label: 'Zoom to preset location',
 			options: [
 				{
@@ -369,29 +458,30 @@ instance.prototype.actions = function () {
 					id: 'level',
 					default: '1',
 					choices: [
-						{ id: '1', label: 'Preset 1'},
-						{ id: '2', label: 'Preset 2'},
-						{ id: '3', label: 'Preset 3'},
-						{ id: '4', label: 'Preset 4'},
-						{ id: '5', label: 'Preset 5'},
-						{ id: '6', label: 'Preset 6'}
+						{ id: '1', label: 'Preset 1' },
+						{ id: '2', label: 'Preset 2' },
+						{ id: '3', label: 'Preset 3' },
+						{ id: '4', label: 'Preset 4' },
+						{ id: '5', label: 'Preset 5' },
+						{ id: '6', label: 'Preset 6' }
 					]
 				}
 			]
 		},
-		'check_mark_clip' : {
+		// This is the "Zoom Step"
+		'check_mark_clip': {
 			label: 'Check Mark Clip' 
 		},
-		'mark_clip' : {
+		'mark_clip': {
 			label: 'OK Mark Clip'
 		},
-		'manual_focus_enable' : {
+		'manual_focus_enable': {
 			label: 'Enable Manual Focus'
 		},
-		'automatic_focus_enable' : {
+		'automatic_focus_enable': {
 			label: 'Enable Automatic Focus'
 		},
-		'shutter_mode' : {
+		'shutter_mode': {
 			label: 'Select Shutter Function',
 			options: [
 				{
@@ -399,19 +489,33 @@ instance.prototype.actions = function () {
 					id: 'function',
 					default: 'off',
 					choices: [
-						{ id: 'slow', label: 'Slow Shutter Mode'},
-						{ id: 'clear', label: 'Clearn Scan Shutter Mode'},
-						{ id: 'angle', label: 'Angle Shutter Mode'},
-						{ id: 'speed', label: 'Speed Shutter Mode'},
-						{ id: 'auto', label: 'Auto Shutter Mode'},
-						{ id: 'off', label: 'Disable Shutter Mode'},
-						{ id: 'fine', label: 'Fine Shutter Mode'},
-						{ id: 'normal', label: 'Normal Shutter Mode'}
+						{ id: 'slow', label: 'Slow Shutter Mode' },
+						{ id: 'clear', label: 'Clearn Scan Shutter Mode' },
+						{ id: 'angle', label: 'Angle Shutter Mode' },
+						{ id: 'speed', label: 'Speed Shutter Mode' },
+						{ id: 'auto', label: 'Auto Shutter Mode' },
+						{ id: 'off', label: 'Disable Shutter Mode' },
+						{ id: 'fine', label: 'Fine Shutter Mode' },
+						{ id: 'normal', label: 'Normal Shutter Mode' }
 					]
 				}
 			]
 		},
-		'nd_mode' : {
+        'nd_ud': {
+            label: 'ND Up/Down',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'direction',
+					default: 'plus',
+					choices: [
+						{ id: 'plus', label: 'ND Up' },
+						{ id: 'minus', label: 'ND Down' }
+                     ]
+				}
+			]
+        },
+		'nd_mode': {
 			label: 'Select ND Function',
 			options: [
 				{
@@ -419,50 +523,72 @@ instance.prototype.actions = function () {
 					id: 'function',
 					default: 'off',
 					choices: [
-						{id: 'off', label: 'ND Off'},
-						{id: 'up', label: 'ND Up'},
-						{id: 'down', label: 'ND Down'},
-						{id: '1/4', label: 'ND 1/4'},
-						{id: '1/16', label: 'ND 1/16'},
-						{id: '1/64', label: 'ND 1/64'}
+						{ id: 'off', label: 'ND Off' },
+						{ id: '1/4', label: 'ND 1/4' },
+						{ id: '1/16', label: 'ND 1/16' },
+						{ id: '1/64', label: 'ND 1/64' }
 					]
 				}
 			]
-	},
-		'full_auto_enable' : {
+		},
+		'full_auto_enable': {
 			label: 'Enable Full Auto'
 		},
-		'full_auto_disable' : {
+		'full_auto_disable': {
 			label: 'Disable Full Auto'
 		},
-		'awb' : {
+		'awb': {
 			label: 'Auto White Balance'
 		},
-		'awb_lock' : {
+		'awb_lock': {
 			label: 'Auto White Balance Lock'
 		},
-		'set_awbcustom_1' : {
-			label: 'Set AWB Custom 1'
+	//	'set_awbcustom_1': {
+	//		label: 'Set AWB Custom 1'
+	//	},
+	//	'set_awbcustom_2': {
+	//		label: 'Set AWB Custom 2'
+	//	},
+	//	'set_whitebalance': {
+	//		label: 'Set White Balance',
+	//		options: [
+	//			{
+	//				type: 'dropdown',
+	//				id: 'type',
+	//				default: 'tungsten',
+	//				choices: [
+	//					{id: 'tungsten', label: 'Tungsten'},
+	//					{id: 'kelvin', label: 'Kelvin'},
+	//					{id: 'daylight', label: 'Daylight'}
+	//				]
+	//			}
+	//		]
+	//	},
+	// While the use of self.kelvin_values negates the need for preset WB values,
+	// if needed, the above actions are commented out temporarily.
+        'enable_kelvin_wb_mode': {
+			label: 'Enable Kelvin White Balance Mode'
 		},
-		'set_awbcustom_2' : {
-			label: 'Set AWB Custom 2'
+		'set_kelvin_wb': {
+            label: 'Set White Balance',
+            options: [
+                {
+                    type: 'dropdown',
+                    id: 'temperature',
+                    default: '3200',
+                    choices: self.kelvin_values
+                }
+            ]
+        },
+			// This kelvin action is the only white balance "mode" that can be configued
+			// for the the wide span of values. Due to the way the camera is controlled, 
+			// this is the simplest and most user friendly way to control white balance.
+
+		'face_tracking_enable': {
+			label: 'Enable Face Tracking'
 		},
-		'set_colortemp' : {
-			label: 'Set Color Temp',
-			options: [
-				{
-					type: 'dropdown',
-					id: 'type',
-					default: 'tungsten',
-					choices: [
-						{id: 'tungsten', label: 'Tungsten - 2940k'},
-						{id: 'kelvin', label: 'Kelvin - 5600k'},
-						{id: 'daylight', label: 'Daylight - 5600k'},
-					]
-				}
-			]
-		
-		
+		'face_tracking_disable': {
+			label: 'Disable Face Tracking'
 		},
 		'logout': {
 			label: 'Logout of the Browser Remote Session'
@@ -495,7 +621,78 @@ instance.prototype.action = function (action) {
 		case 'focus':
 			cmd = '/api/cam/drivelens?fl=' + options.level;
 			break;
-			
+		case 'trigger_rec':
+			cmd = '/api/cam/rec?cmd=trig';
+			break;
+		case 'select_sd':
+			cmd = '/api/cam/rec?cmd=slot';
+			break;
+		case 'push_auto_iris':
+			cmd = '/api/cam/drivelens?ai=push';
+			break;
+		case 'auto_iris':
+			cmd = '/api/cam/setprop?am=autoiris';
+			break;
+		case 'manual_iris':
+			cmd = '/api/cam/setprop?am=maniris';
+			break;
+		case 'face_detection_focus':
+			cmd = '/api/cam/drivelens?focus=track';
+			break;
+		case 'zoom_preset':
+			cmd = '/api/cam/drivelens?stepzoom=' + options.level;
+			break;
+		case 'check_mark_clip':
+			cmd = '/api/cam/markclip?type=check';
+			break;
+		case 'mark_clip':
+			cmd = '/api/cam/markclip?type=ok';
+			break;
+		case 'manual_focus_enable':
+			cmd = '/api/cam/setprop?afm=off';
+			break;
+		case 'automatic_focus_enable':
+			cmd = '/api/cam/setprop?afm=continuous';
+			break;
+		case 'shutter_mode':
+			cmd = '/api/cam/setprop?ssm=' + options.function;
+			break;
+		case 'nd_ud':
+			cmd = '/api/cam/drivelens?nd=' + options.direction;
+			break;
+		case 'nd_mode':
+			cmd = '/api/cam/drivelens?ndv=' + options.function;
+			break;
+		case 'full_auto_enable':
+			cmd = '/api/cam/setprop?fullauto=on';
+			break;
+		case 'full_auto_disable':
+			cmd = '/api/cam/setprop?fullauto=off';
+			break;
+		case 'awb':
+			cmd = '/api/cam/setprop?wbm=awb';
+			break;
+		case 'awb_lock':
+			cmd = '/api/cam/cmdwb?awbhold=trig';
+			break;
+		//case 'set_awbcustom_1':
+			//cmd = '/api/cam/setprop?wbm=seta';
+		//case 'set_awbcustom_2':
+			//cmd = '/api/cam/setprop?wbm=setb';
+		//case 'set_whitebalance':
+			//cmd = '/api/cam/setprop?wbm=' + options.type;
+		case 'enable_kelvin_wb_mode':
+			cmd = '/api/cam/setprop?wbm=kelvin';
+			break;
+		case 'set_kelvin_wb':
+			cmd = '/api/cam/setprop?wbvk=' + options.temperature;
+			break;
+		case 'face_tracking_enable':
+			cmd = '/api/cam/setprop?fdat=on';
+			break;
+		case 'face_tracking_disable':
+			cmd = '/api/cam/setprop?fdat=off';
+			break;
 		case 'logout':
 			self.Logout();
 			break;
