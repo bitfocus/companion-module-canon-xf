@@ -543,27 +543,27 @@ instance.prototype.actions = function () {
 		'awb_lock': {
 			label: 'Auto White Balance Lock'
 		},
-	//	'set_awbcustom_1': {
-	//		label: 'Set AWB Custom 1'
-	//	},
-	//	'set_awbcustom_2': {
-	//		label: 'Set AWB Custom 2'
-	//	},
-	//	'set_whitebalance': {
-	//		label: 'Set White Balance',
-	//		options: [
-	//			{
-	//				type: 'dropdown',
-	//				id: 'type',
-	//				default: 'tungsten',
-	//				choices: [
-	//					{id: 'tungsten', label: 'Tungsten'},
-	//					{id: 'kelvin', label: 'Kelvin'},
-	//					{id: 'daylight', label: 'Daylight'}
-	//				]
-	//			}
-	//		]
-	//	},
+	/*	'set_awbcustom_1': {
+			label: 'Set AWB Custom 1'
+		},
+		'set_awbcustom_2': {
+			label: 'Set AWB Custom 2'
+		},
+		'set_whitebalance': {
+			label: 'Set White Balance',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'type',
+					default: 'tungsten',
+					choices: [
+						{id: 'tungsten', label: 'Tungsten'},
+						{id: 'kelvin', label: 'Kelvin'},
+						{id: 'daylight', label: 'Daylight'}
+					]
+				}
+			]
+	*/	},
 	// While the use of self.kelvin_values negates the need for preset WB values,
 	// if needed, the above actions are commented out temporarily.
         'enable_kelvin_wb_mode': {
@@ -581,7 +581,7 @@ instance.prototype.actions = function () {
             ]
         },
 			// This kelvin action is the only white balance "mode" that can be configued
-			// for the the wide span of values. Due to the way the camera is controlled, 
+            //for the the wide span of values. Due to the way the camera is controlled, 
 			// this is the simplest and most user friendly way to control white balance.
 
 		'face_tracking_enable': {
@@ -675,12 +675,13 @@ instance.prototype.action = function (action) {
 		case 'awb_lock':
 			cmd = '/api/cam/cmdwb?awbhold=trig';
 			break;
-		//case 'set_awbcustom_1':
-			//cmd = '/api/cam/setprop?wbm=seta';
-		//case 'set_awbcustom_2':
-			//cmd = '/api/cam/setprop?wbm=setb';
-		//case 'set_whitebalance':
-			//cmd = '/api/cam/setprop?wbm=' + options.type;
+		/*case 'set_awbcustom_1':
+			cmd = '/api/cam/setprop?wbm=seta';
+		case 'set_awbcustom_2':
+			cmd = '/api/cam/setprop?wbm=setb';
+		case 'set_whitebalance':
+			cmd = '/api/cam/setprop?wbm=' + options.type;
+            */
 		case 'enable_kelvin_wb_mode':
 			cmd = '/api/cam/setprop?wbm=kelvin';
 			break;
