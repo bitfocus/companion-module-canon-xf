@@ -490,7 +490,7 @@ instance.prototype.actions = function () {
 					default: 'off',
 					choices: [
 						{ id: 'slow', label: 'Slow Shutter Mode' },
-						{ id: 'clear', label: 'Clearn Scan Shutter Mode' },
+						{ id: 'clear', label: 'Clear Scan Shutter Mode' },
 						{ id: 'angle', label: 'Angle Shutter Mode' },
 						{ id: 'speed', label: 'Speed Shutter Mode' },
 						{ id: 'auto', label: 'Auto Shutter Mode' },
