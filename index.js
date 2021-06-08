@@ -19,56 +19,56 @@ instance.prototype.acid = '';
 instance.prototype.authlevel = 'full';
 instance.prototype.seq = 1;
 instance.prototype.kelvin_values = [
-    { id: '2000', label: '2000 K' },
-    { id: '2020', label: '2020 K' },
+	{ id: '2000', label: '2000 K' },
+	{ id: '2020', label: '2020 K' },
 	{ id: '2040', label: '2040 K' },
-    { id: '2060', label: '2060 K' },
-    { id: '2080', label: '2080 K' },
-    { id: '2110', label: '2110 K' },
-    { id: '2130', label: '2130 K' },
-    { id: '2150', label: '2150 K' },
-    { id: '2170', label: '2170 K' },
-    { id: '2200', label: '2200 K' },
-    { id: '2250', label: '2250 K' },
-    { id: '2270', label: '2270 K' },
-    { id: '2300', label: '2300 K' },
-    { id: '2330', label: '2330 K' },
-    { id: '2350', label: '2350 K' },
-    { id: '3280', label: '3280 K' },
-    { id: '2410', label: '2410 K' },
-    { id: '2440', label: '2440 K' },
-    { id: '2470', label: '2470 K' },
-    { id: '2500', label: '2500 K' },
-    { id: '2530', label: '2530 K' },
-    { id: '2560', label: '2560 K' },
-    { id: '2600', label: '2600 K' },
-    { id: '2630', label: '2630 K' },
-    { id: '2670', label: '2670 K' },
-    { id: '2700', label: '2700 K' },
-    { id: '2740', label: '2740 K' },
-    { id: '2780', label: '2780 K' },
-    { id: '2820', label: '2820 K' },
-    { id: '2860', label: '2860 K' },
-    { id: '2900', label: '2900 K' },
-    { id: '2940', label: '2940 K' },
-    { id: '2990', label: '2990 K' },
-    { id: '3030', label: '3030 K' },
-    { id: '3080', label: '3080 K' },
-    { id: '3130', label: '3130 K' },
-    { id: '3200', label: '3200 K' },
-    { id: '3230', label: '3230 K' },
-    { id: '3280', label: '3280 K' },
-    { id: '3330', label: '3330 K' },
-    { id: '3390', label: '3390 K' },
-    { id: '3450', label: '3450 K' },
-    { id: '3510', label: '3510 K' },
-    { id: '3570', label: '3570 K' },
-    { id: '3640', label: '3640 K' },
-    { id: '3700', label: '3700 K' },
-    { id: '3770', label: '3770 K' },
-    { id: '3850', label: '3850 K' },
-    { id: '3920', label: '3920 K' },
-    { id: '4000', label: '4000 K' },
+	{ id: '2060', label: '2060 K' },
+	{ id: '2080', label: '2080 K' },
+	{ id: '2110', label: '2110 K' },
+	{ id: '2130', label: '2130 K' },
+	{ id: '2150', label: '2150 K' },
+	{ id: '2170', label: '2170 K' },
+	{ id: '2200', label: '2200 K' },
+	{ id: '2250', label: '2250 K' },
+	{ id: '2270', label: '2270 K' },
+	{ id: '2300', label: '2300 K' },
+	{ id: '2330', label: '2330 K' },
+	{ id: '2350', label: '2350 K' },
+	{ id: '3280', label: '3280 K' },
+	{ id: '2410', label: '2410 K' },
+	{ id: '2440', label: '2440 K' },
+	{ id: '2470', label: '2470 K' },
+	{ id: '2500', label: '2500 K' },
+	{ id: '2530', label: '2530 K' },
+	{ id: '2560', label: '2560 K' },
+	{ id: '2600', label: '2600 K' },
+	{ id: '2630', label: '2630 K' },
+	{ id: '2670', label: '2670 K' },
+	{ id: '2700', label: '2700 K' },
+	{ id: '2740', label: '2740 K' },
+	{ id: '2780', label: '2780 K' },
+	{ id: '2820', label: '2820 K' },
+	{ id: '2860', label: '2860 K' },
+	{ id: '2900', label: '2900 K' },
+	{ id: '2940', label: '2940 K' },
+	{ id: '2990', label: '2990 K' },
+	{ id: '3030', label: '3030 K' },
+	{ id: '3080', label: '3080 K' },
+	{ id: '3130', label: '3130 K' },
+	{ id: '3200', label: '3200 K' },
+	{ id: '3230', label: '3230 K' },
+	{ id: '3280', label: '3280 K' },
+	{ id: '3330', label: '3330 K' },
+	{ id: '3390', label: '3390 K' },
+	{ id: '3450', label: '3450 K' },
+	{ id: '3510', label: '3510 K' },
+	{ id: '3570', label: '3570 K' },
+	{ id: '3640', label: '3640 K' },
+	{ id: '3700', label: '3700 K' },
+	{ id: '3770', label: '3770 K' },
+	{ id: '3850', label: '3850 K' },
+	{ id: '3920', label: '3920 K' },
+	{ id: '4000', label: '4000 K' },
 	{ id: '4080', label: '4080 K' },
 	{ id: '4170', label: '4170 K' },
 	{ id: '4300', label: '4300 K' },
@@ -337,7 +337,7 @@ instance.prototype.Login = function() {
 				self.log('info', jsonBody.res)
 			}
 		} catch (error) {
-			console.log(error);
+			self.log('error', error);
 		}
 	});	
 };
@@ -501,8 +501,8 @@ instance.prototype.actions = function () {
 				}
 			]
 		},
-        'nd_ud': {
-            label: 'ND Up/Down',
+		'nd_ud': {
+			label: 'ND Up/Down',
 			options: [
 				{
 					type: 'dropdown',
@@ -511,10 +511,10 @@ instance.prototype.actions = function () {
 					choices: [
 						{ id: 'plus', label: 'ND Up' },
 						{ id: 'minus', label: 'ND Down' }
-                     ]
+					 ]
 				}
 			]
-        },
+		},
 		'nd_mode': {
 			label: 'Select ND Function',
 			options: [
@@ -563,25 +563,25 @@ instance.prototype.actions = function () {
 					]
 				}
 			]
-	*/	},
+		},*/
 	// While the use of self.kelvin_values negates the need for preset WB values,
 	// if needed, the above actions are commented out temporarily.
-        'enable_kelvin_wb_mode': {
+		'enable_kelvin_wb_mode': {
 			label: 'Enable Kelvin White Balance Mode'
 		},
 		'set_kelvin_wb': {
-            label: 'Set White Balance',
-            options: [
-                {
-                    type: 'dropdown',
-                    id: 'temperature',
-                    default: '3200',
-                    choices: self.kelvin_values
-                }
-            ]
-        },
+			label: 'Set White Balance',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'temperature',
+					default: '3200',
+					choices: self.kelvin_values
+				}
+			]
+		},
 			// This kelvin action is the only white balance "mode" that can be configued
-            //for the the wide span of values. Due to the way the camera is controlled, 
+			//for the the wide span of values. Due to the way the camera is controlled, 
 			// this is the simplest and most user friendly way to control white balance.
 
 		'face_tracking_enable': {
@@ -681,7 +681,7 @@ instance.prototype.action = function (action) {
 			cmd = '/api/cam/setprop?wbm=setb';
 		case 'set_whitebalance':
 			cmd = '/api/cam/setprop?wbm=' + options.type;
-            */
+			*/
 		case 'enable_kelvin_wb_mode':
 			cmd = '/api/cam/setprop?wbm=kelvin';
 			break;
@@ -718,7 +718,7 @@ instance.prototype.action = function (action) {
 
 			self.request.get({ url: url, jar: cookieJarAuth }, function (error, response, body) {
 				let jsonBody = JSON.parse(body);
-				//console.log(jsonBody);
+				
 				if (jsonBody.res === 'ok') {
 					//the command ran ok
 				}
@@ -796,12 +796,10 @@ instance.prototype.GetUpdate = function () {
 };
 
 instance.prototype.CheckData = function(data) {
-	console.log(data);
 	let self = this;
 	
 	/*
 	{"res":"ok","seq":1,"com":1,"mode":"ctrl","camid":"XF705   ","Opower":{"Obatt":{"percent":"non","rtime":"non"}},"rec":"off","extrec":"off","tc":"08:13:27.09","lvactfarea":"dci_80x80","Omedia":{"Osda":{"state":"n","rtime":-1,"select":0},"Osdb":{"state":"n","rtime":-1,"select":0}},"Owbinfo":{"Omode":{"pv":"tungsten","en":1},"Oawb":{"kelvinvalue":"--","ccvalue":"--","en":1},"Oseta":{"Ovalue":{"kelvinvalue":"5600","ccvalue":"0","en":1},"Osts":{"pv":"comp","en":1}},"Osetb":{"Ovalue":{"kelvinvalue":"5600","ccvalue":"0","en":1},"Osts":{"pv":"comp","en":1}},"Odaylight":{"kelvinvalue":"5600","ccvalue":"0","en":1},"Otungsten":{"kelvinvalue":"2940","ccvalue":"0","en":1},"Okelvin":{"kelvinvalue":"5600","ccvalue":"0","en":1},"Oawbhold":{"pv":"off","en":0},"propupdate":0},"Ondinfo":{"Ovalue":{"pv":"off","en":1},"adjen":1,"propupdate":0,"opedirection":"non"},"Oirisinfo":{"Omode":{"pv":"maniris","en":1},"Ovalue":{"pv":"F4.4","en":1},"Opushai":{"pv":"stop","en":1},"adjen":1,"Onumline":{"seg":3,"maxseg":15,"pos":127,"maxpos":254},"propupdate":0},"Oisogaininfo":{"Omode":{"pv":"mangain","en":1},"Ostep":{"pv":"normal","en":1},"Ovalue":{"pv":"15.0","en":1},"adjen":1,"propupdate":0},"Oshutterinfo":{"Omode":{"pv":"speed","en":1},"Ostep":{"pv":"normal","en":1},"Ovalue":{"pv":"1/75","en":1},"adjen":1,"propupdate":0},"Oaesinfo":{"Ovalue":{"pv":"--","en":0},"adjen":0,"propupdate":1},"Ofocusinfo":{"Oafmode":{"pv":"continuous","en":1},"Ofacedat":{"pv":"off","en":1},"Ofguide":{"pv":"off","en":1},"trctrlen":0,"tcctrlen":0,"Ofctrl":{"pv":"","en":1}},"Offrame":{"Oframeinfo":{"ftype":"non","farrowdisp":[0,0,0,0,0,0,0,0,0],"arrowsign":[0,0,0,0,0,0,0,0,0],"arrowangle":[0,0,0,0,0,0,0,0,0],"color":[0,0,0,0,0,0,0,0,0],"width":[0,0,0,0,0,0,0,0,0],"height":[0,0,0,0,0,0,0,0,0],"xcoord":[0,0,0,0,0,0,0,0,0],"ycoord":[0,0,0,0,0,0,0,0,0]},"Ofguideframeinfo":{"ftype":"non","farrowdisp":[0,0,0,0,0,0,0,0,0],"arrowsign":[0,0,0,0,0,0,0,0,0],"arrowangle":[0,0,0,0,0,0,0,0,0],"color":[0,0,0,0,0,0,0,0,0],"width":[0,0,0,0,0,0,0,0,0],"height":[0,0,0,0,0,0,0,0,0],"xcoord":[0,0,0,0,0,0,0,0,0],"ycoord":[0,0,0,0,0,0,0,0,0]}},"Ometa":{"metamode":"ctrl","metaclip":[""]},"Ozoom":{"speed":2,"pos":47,"status":"stop"},"recfmt":"hevc","irmode":"off","Ofullauto":{"pv":"off","en":1,"propupdate":0}}
-
 	*/
 	try {
 		if (data['camid']) {
@@ -956,7 +954,7 @@ instance.prototype.CheckData = function(data) {
 		}
 	}
 	catch(error) {
-		console.log('Error processing data: ' + error);
+		self.log('error', 'Error processing data: ' + error);
 	}
 };
 
