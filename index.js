@@ -468,7 +468,22 @@ instance.prototype.actions = function () {
 				}
 			]
 		},
-		// This is the "Zoom Step"
+		// This is the "Set Zoom Points"
+		'zoom_fine': {
+			label: 'Zoom fine adjustment',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'direction',
+					default: 'tele1',
+					choices: [
+						{ id: 'tele1', label: 'Zoom In' },
+						{ id: 'wide1', label: 'Zoom Out' }
+					]
+				}
+			]
+		},
+		// This is the Fine Zoom Adjustment, only options are in or out one step at a time.
 		'check_mark_clip': {
 			label: 'Check Mark Clip' 
 		},
@@ -641,6 +656,9 @@ instance.prototype.action = function (action) {
 			break;
 		case 'zoom_preset':
 			cmd = '/api/cam/drivelens?stepzoom=' + options.level;
+			break;
+		case 'zoom_fine':
+			cmd = '/api/cam/drivelens?zoom=' + options.direction;
 			break;
 		case 'check_mark_clip':
 			cmd = '/api/cam/markclip?type=check';
