@@ -21,6 +21,7 @@ This module will allow you to control a Canon XF Camera.
 * Check Mark Clip
 * OK Mark Clip
 * Zoom Presets (6)
+* Zoom Fine Adjustment
 * Shutter Modes
 * ND Up/Down
 * ND Modes
