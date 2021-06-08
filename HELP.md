@@ -3,8 +3,9 @@
 This module will allow you to control a Canon XF Camera.
 
 ### Configuration
-* Enter the IP address of the device in the configuration settings.
+* Enter the IP address of the Canon XF in the configuration settings.
 * The device will use HTTP port 80.
+* When the module is in use, the Browser Remote is unavailable due to limitations of the Canon software.
 
 **Available actions:**
 * Gain Up/Down
@@ -28,3 +29,38 @@ This module will allow you to control a Canon XF Camera.
 * Kelvin Custom WB Mode (80+ WB Values)
 * Full Auto Mode Enable/Disable
 * Login/Logout functionality
+
+**Available Variables:**
+* Camera ID
+* Battery Percent
+* Battery Remaining
+* Full Auto Status
+* Recording Status
+* Recording Format
+* Ext Recording
+* Timecode
+* SD Card A/B State
+* SD Card A/B Remaining
+* White Balance Mode
+* AWB Kelvin Custom Value
+* AWB CC Value
+* WB Set A Value
+* WB Set B Value
+* CC Set A Value
+* CC Set B Value
+* WB Daylight Custom Value
+* CC Daylight Custom Value
+* WB Tungsten Kelvin Value
+* CC Tungsten Kelvin Value
+* Kelvin Value
+* ND Value
+* Iris Mode
+* Iris Value
+* ISO/Gain Mode
+* Shutter Mode
+* AE Shift Value
+* AF Mode
+* Face Detection Status
+* Focus Guide
+* Zoom Speed
+* Zoom Position
