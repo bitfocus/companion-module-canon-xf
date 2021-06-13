@@ -17,7 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/bitfocus/companion-module-canon-xf.git"
   },
-  "author": "Joseph Adams <josephdadams@gmail.com>",
+  "author": "Mitchell Jonker <mcjonker9@gmail.com>",
+  "contributors": [
+      "Joseph Adams <josephdadams@gmail.com>"
+    ],
   "license": "MIT",
   "dependencies": {
     "request": "^2.88.0"
