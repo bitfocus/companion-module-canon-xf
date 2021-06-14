@@ -6,6 +6,7 @@ This module will allow you to control a Canon XF Camera.
 * Enter the IP address of the Canon XF in the configuration settings.
 * The device will use HTTP port 80.
 * When the module is in use, the Browser Remote is unavailable due to limitations of the Canon software.
+* For the Set White Balance function to work, you must first enable the Kelvin WB mode using the Kelvin Custom WB Mode action. 
 
 **Available actions:**
 * Gain Up/Down
