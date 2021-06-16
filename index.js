@@ -108,6 +108,8 @@ instance.prototype.kelvin_values = [
 	{ id: '15000', label: '15000 K' }
 ];
 
+instance.prototype.RECORDING = null;
+
 instance.prototype.init = function () {
 	var self = this;
 
@@ -119,6 +121,7 @@ instance.prototype.init = function () {
 	self.status(self.STATUS_UNKNOWN);
 	
 	self.init_variables();
+	self.init_feedbacks();
 	self.init_connection();
 };
 
@@ -281,13 +284,92 @@ instance.prototype.init_variables = function () {
 	];
 	
 	self.setVariableDefinitions(variables);
+
+	self.setVariable('camid', '');
+	self.setVariable('battery_percent', '');
+	self.setVariable('battery_remaining', '');
+	self.setVariable('fullauto', '');
+	self.setVariable('rec', '');
+	self.setVariable('rec_fmt', '');
+	self.setVariable('extrec', '');
+	self.setVariable('tc', '');
+	self.setVariable('sdcard_a_state', '');
+	self.setVariable('sdcard_a_remaining', '');
+	self.setVariable('sdcard_b_state', '');
+	self.setVariable('sdcard_b_remaining', '');
+	self.setVariable('wb_mode', '');
+	self.setVariable('awb_kelvinvalue', '');
+	self.setVariable('awb_ccvalue', '');
+	self.setVariable('seta_kelvinvalue', '');
+	self.setVariable('seta_ccvalue', '');
+	self.setVariable('setb_kelvinvalue', '');
+	self.setVariable('setb_ccvalue', '');
+	self.setVariable('daylight_kelvinvalue', '');
+	self.setVariable('daylight_ccvalue', '');
+	self.setVariable('tungsten_kelvinvalue', '');
+	self.setVariable('tungsten_ccvalue', '');
+	self.setVariable('kelvinvalue', '');
+	self.setVariable('neutraldensity_value', '');
+	self.setVariable('iris_mode', '');
+	self.setVariable('iris_value', '');
+	self.setVariable('isogain_mode', '');
+	self.setVariable('isogain_value', '');
+	self.setVariable('shutter_mode', '');
+	self.setVariable('shutter_step', '');
+	self.setVariable('shutter_value', '');
+	self.setVariable('aeshift_value', '');
+	self.setVariable('afmode', '');
+	self.setVariable('facedetection', '');
+	self.setVariable('focusguide', '');
+	self.setVariable('zoom_speed', '');
+	self.setVariable('zoom_position', '');
+};
+
+instance.prototype.init_feedbacks = function() {
+	let self = this;
+
+	// feedbacks
+	let feedbacks = {};
+
+	feedbacks['rec'] = {
+		label: 'Camera is Recording',
+		description: 'If camera is recording, set the button to this color.',
+		options: [
+			{
+				type: 'colorpicker',
+				label: 'Foreground Color',
+				id: 'fg',
+				default: self.rgb(0,0,0)
+			},
+			{
+				type: 'colorpicker',
+				label: 'Background Color',
+				id: 'bg',
+				default: self.rgb(0,255,0)
+			}
+		]
+	};
+
+	self.setFeedbackDefinitions(feedbacks);
+};
+
+instance.prototype.feedback = function(feedback, bank) {
+	let self = this;
+	
+	if (feedback.type === 'rec') {
+		if (self.RECORDING === 'rec') {
+			return { color: feedback.options.fg, bgcolor: feedback.options.bg };
+		}
+	}
+
+	return {};
 };
 
 instance.prototype.init_connection = function () {
 	let self = this;
 	
 	self.Login();
-}
+};
 
 instance.prototype.Login = function() {
 	let self = this;
@@ -837,6 +919,8 @@ instance.prototype.CheckData = function(data) {
 
 		if (data['rec']) {
 			self.setVariable('rec', data['rec']);
+			self.RECORDING = data['rec'];
+			self.checkFeedbacks('rec');
 		}
 
 		if (data['recfmt']) {
