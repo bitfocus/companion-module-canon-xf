@@ -452,7 +452,7 @@ instance.prototype.config_fields = function () {
 			id: 'host',
 			label: 'IP Address',
 			width: 6,
-			default: '192.168.11.226',
+			default: '192.168.11.175',
 			regex: self.REGEX_IP
 		},
 		{
