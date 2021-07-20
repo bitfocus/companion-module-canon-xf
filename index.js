@@ -496,7 +496,7 @@ instance.prototype.actions = function () {
 			label: 'Iris Down'
 		},
 		'focus': {
-			label: 'Set Focus Level',
+			label: 'Focus Fine Adjustment',
 			options: [
 				{
 					type: 'dropdown',
