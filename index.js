@@ -677,7 +677,7 @@ instance.prototype.actions = function () {
 			],
 		},
 		// This kelvin action is the only white balance "mode" that can be configued
-		//for the the wide span of values. Due to the way the camera is controlled,
+		// for the the wide span of values. Due to the way the camera is controlled,
 		// this is the simplest and most user friendly way to control white balance.
 
 		face_tracking_enable: {
