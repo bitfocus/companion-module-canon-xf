@@ -481,7 +481,7 @@ instance.prototype.destroy = function () {
 instance.prototype.actions = function () {
 	var self = this
 
-	self.system.emit('instance_actions', self.id, {
+	self.setActions({
 		gain_up: {
 			label: 'Gain Up',
 		},
