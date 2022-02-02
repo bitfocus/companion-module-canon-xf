@@ -1,6 +1,6 @@
 {
   "name": "canon-xf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "api_version": "1.0.0",
   "keywords": [
     "Canon"
@@ -19,8 +19,8 @@
   },
   "author": "Mitchell Jonker <mcjonker9@gmail.com>",
   "contributors": [
-      "Joseph Adams <josephdadams@gmail.com>"
-    ],
+    "Joseph Adams <josephdadams@gmail.com>"
+  ],
   "license": "MIT",
   "dependencies": {
     "request": "^2.88.0"
