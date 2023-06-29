@@ -1,6 +1,6 @@
 ## Canon XF
 
-This module will allow you to control a Canon XF Camera.
+This module will allow you to control a Canon XF Camera such as the XF405 or XF705. For the XF605, try the Canon-PTZ module which uses the XC protocol.
 
 ### Configuration
 * Enter the IP address of the Canon XF in the configuration settings.
@@ -10,7 +10,7 @@ This module will allow you to control a Canon XF Camera.
 * The camera must be in Manual Focus Mode for the manual focus adjustments to work.
 * The camera must be in Manual Iris Mode for the manual iris adjustments to work.
 
-**Available actions:**
+**Available Actions:**
 * Gain Up/Down
 * Iris Up/Down
 * Push Auto Iris
@@ -68,3 +68,6 @@ This module will allow you to control a Canon XF Camera.
 * Focus Guide
 * Zoom Speed
 * Zoom Position
+
+**Available Feedbacks:**
+* Camera is Recording

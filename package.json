@@ -1,14 +1,6 @@
 {
 	"name": "canon-xf",
-	"version": "1.0.2",
-	"api_version": "1.0.0",
-	"keywords": [
-		"Canon"
-	],
-	"manufacturer": "Canon",
-	"product": "XF Camera",
-	"shortname": "canon-xf",
-	"description": "",
+	"version": "2.0.0",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -17,16 +9,12 @@
 		"type": "git",
 		"url": "git+https://github.com/bitfocus/companion-module-canon-xf.git"
 	},
-	"author": "Mitchell Jonker <mcjonker9@gmail.com>",
-	"contributors": [
-		"Joseph Adams <josephdadams@gmail.com>"
-	],
 	"license": "MIT",
 	"dependencies": {
-		"request": "^2.88.0"
+		"@companion-module/base": "~1.4.1",
+		"request": "^2.88.2"
 	},
-	"bugs": {
-		"url": "https://github.com/bitfocus/companion-module-canon-xf/issues"
-	},
-	"homepage": "https://github.com/bitfocus/companion-module-canon-xf#readme"
+	"devDependencies": {
+		"@companion-module/tools": "^1.3.2"
+	}
 }
