@@ -22,7 +22,10 @@
 	},
 	"manufacturer": "Canon",
 	"products": [
-		"XF Camera"
+		"XF405",
+		"XF705",
+		"C100",
+		"Browser Remote"
 	],
 	"keywords": [
 		"Canon"

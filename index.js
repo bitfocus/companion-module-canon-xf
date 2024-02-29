@@ -27,10 +27,13 @@ class canonxfInstance extends InstanceBase {
 		})
 
 		this.INTERVAL = null; //used to poll for updates
+		this.PROPS_INTERVAL = null; //used to poll for properties (C100)
 
 		this.acid = '';
 		this.authlevel = 'full';
+		this.productID = 'VOAX00';
 		this.seq = 1;
+		this.brlang = 0;
 
 		this.RECORDING = null;
 
@@ -42,7 +45,9 @@ class canonxfInstance extends InstanceBase {
 
 		if (self.INTERVAL) {
 			clearInterval(self.INTERVAL);
+			clearInterval(self.PROPS_INTERVAL);
 			self.INTERVAL = null;
+			self.PROPS_INTERVAL = null;
 		}
 	}
 

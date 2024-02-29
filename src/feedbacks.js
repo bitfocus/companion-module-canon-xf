@@ -20,7 +20,7 @@ module.exports = {
 			callback: (event) => {
 				let opt = event.options
 
-				if (self.DATA.rec == 'rec') {
+				if (self.DATA.rec.toString().toLowerCase() == 'rec') {
 					return true;
 				}
 
