@@ -70,30 +70,6 @@ module.exports = {
 				}
 			}
 			
-			actions.focus = {
-				name: 'Focus Fine Adjustment',
-				options: [
-					{
-						type: 'dropdown',
-						label: 'Level',
-						id: 'level',
-						default: 'near1',
-						choices: [
-							{ id: 'near1', label: 'Near 1' },
-							{ id: 'near2', label: 'Near 2' },
-							{ id: 'near3', label: 'Near 3' },
-							{ id: 'far1', label: 'Far 1' },
-							{ id: 'far2', label: 'Far 2' },
-							{ id: 'far3', label: 'Far 3' },
-						],
-					},
-				],
-				callback: async function (action) {
-					let cmd = 'drivelens?focus=' + action.options.level;
-					self.sendCommand(cmd);
-				}
-			}
-			
 			actions.trigger_rec = {
 				name: 'Trigger Recording',
 				options: [],
