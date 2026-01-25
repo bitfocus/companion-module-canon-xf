@@ -406,6 +406,40 @@ module.exports = {
 				}
 			}
 
+			actions.wbkelvin_up = {
+				name: 'Kelvin Up',
+				options: [],
+				callback: async function (action) {
+					//determine the current Okelvin value and go up one step and then send that command
+					let current = self.DATA?.Owbinfo?.Okelvin?.kelvinvalue;
+					self.log('debug', 'current wb ' + current);
+					let index = self.kelvin_values.findIndex(x => x.id == current);
+					self.log('debug', 'current wb index ' + index);
+
+					if (index < self.kelvin_values.length - 1) {
+						let cmd = 'setprop?wbvk=' + self.kelvin_values[index + 1].id;
+						self.sendCommand(cmd);
+					}
+				}
+			}
+
+			actions.wbkelvin_down = {
+				name: 'Kelvin Down',
+				options: [],
+				callback: async function (action) {
+					//determine the current Okelvin value and go up one step and then send that command
+					let current = self.DATA?.Owbinfo?.Okelvin?.kelvinvalue;
+					self.log('debug', 'current wb ' + current);
+					let index = self.kelvin_values.findIndex(x => x.id == current);
+					self.log('debug', 'current wb index ' + index);
+
+					if (index > 0) {
+						let cmd = 'setprop?wbvk=' + self.kelvin_values[index - 1].id;
+						self.sendCommand(cmd);
+					}
+				}
+			}
+
 			actions.focus = {
 				name: self.config.model + ': ' + 'Focus Adjustment',
 				options: [
