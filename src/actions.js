@@ -229,6 +229,24 @@ module.exports = {
 				}
 			}
 
+			actions.shutter_up = {
+				name: 'Shutter Up',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?shutter=plus';
+					self.sendCommand(cmd);
+				}
+			}
+			
+			actions.shutter_down = {
+				name: 'Shutter Down',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?shutter=minus';
+					self.sendCommand(cmd);
+				}
+			}
+			
 			actions.nd_ud = {
 				name: 'ND Up/Down',
 				options: [
@@ -265,6 +283,27 @@ module.exports = {
 				],
 				callback: async function (action) {
 					let cmd = 'drivelens?ndv=' + action.options.function;
+					self.sendCommand(cmd);
+				}
+			}
+
+			actions.rec_mode = {
+				name: 'Select exposure mode',
+				options: [
+					{
+						type: 'dropdown',
+						id: 'mode',
+						default: 'manual',
+						choices: [
+							{ id: 'p', label: 'P' },
+							{ id: 'tv', label: 'Tv' },
+							{ id: 'av', label: 'Av' },
+							{ id: 'manual', label: 'M' },
+						],
+					},
+				],
+				callback: async function (action) {
+					let cmd = 'setprop?recmode=' + action.options.mode;
 					self.sendCommand(cmd);
 				}
 			}
