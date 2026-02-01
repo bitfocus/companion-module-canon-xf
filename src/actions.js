@@ -361,6 +361,26 @@ module.exports = {
 					self.sendCommand(cmd);
 				}
 			}
+
+			
+			actions.set_wb_1 = {
+				name: 'Set AWB Custom Value 1',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'cmdwb?wbset=a';
+					self.sendCommand(cmd);
+				}
+			}
+
+			actions.set_wb_2 = {
+				name: 'Set AWB Custom Value 2',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'cmdwb?wbset=b';
+					self.sendCommand(cmd);
+				}
+			}
+			
 			
 			actions.set_whitebalance = {
 				name: 'Set White Balance',
@@ -389,7 +409,7 @@ module.exports = {
 					self.sendCommand(cmd);
 				}
 			}
-			
+
 			actions.set_kelvin_wb = {
 				name: 'Set Kelvin Value',
 				options: [
@@ -415,8 +435,11 @@ module.exports = {
 					self.log('debug', 'current wb ' + current);
 					let index = self.kelvin_values.findIndex(x => x.id == current);
 					self.log('debug', 'current wb index ' + index);
+					self.log('debug', 'self.kelvin_values.length ' + self.kelvin_values.length);
 
 					if (index < self.kelvin_values.length - 1) {
+						self.log('debug', 'setting kelvin ' + self.kelvin_values[index + 1].id);
+
 						let cmd = 'setprop?wbvk=' + self.kelvin_values[index + 1].id;
 						self.sendCommand(cmd);
 					}
@@ -434,6 +457,8 @@ module.exports = {
 					self.log('debug', 'current wb index ' + index);
 
 					if (index > 0) {
+						self.log('debug', 'setting kelvin ' + self.kelvin_values[index - 1].id);
+
 						let cmd = 'setprop?wbvk=' + self.kelvin_values[index - 1].id;
 						self.sendCommand(cmd);
 					}
