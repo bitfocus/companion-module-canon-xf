@@ -35,6 +35,24 @@ module.exports = {
 				}
 			}
 
+			actions.aeshift_up = {
+				name: 'AE Up',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?aes=plus';
+					self.sendCommand(cmd);
+				}
+			}
+			
+			actions.aeshift_down = {
+				name: 'AE Down',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?aes=minus';
+					self.sendCommand(cmd);
+				}
+			}
+
 			actions.iris_set = {
 				name: 'Set Iris Value',
 				options: [
@@ -133,12 +151,12 @@ module.exports = {
 						id: 'level',
 						default: 'preset1',
 						choices: [
-							{ id: 'preset1', label: 'Preset 1' },
-							{ id: 'preset2', label: 'Preset 2' },
-							{ id: 'preset3', label: 'Preset 3' },
-							{ id: 'preset4', label: 'Preset 4' },
-							{ id: 'preset5', label: 'Preset 5' },
-							{ id: 'preset6', label: 'Preset 6' },
+							{ id: '1', label: 'Preset 1' },
+							{ id: '2', label: 'Preset 2' },
+							{ id: '3', label: 'Preset 3' },
+							{ id: '4', label: 'Preset 4' },
+							{ id: '5', label: 'Preset 5' },
+							{ id: '6', label: 'Preset 6' },
 						]
 					}
 				],

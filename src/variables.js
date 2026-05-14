@@ -13,6 +13,7 @@ module.exports = {
 			variables.push({variableId: 'rec_fmt', name: 'Recording Format'});
 			variables.push({variableId: 'extrec', name: 'Ext Recording'});
 			variables.push({variableId: 'tc', name: 'Timecode'});
+			variables.push({variableId: 'recmode', name: 'Expsure mode'});
 			variables.push({variableId: 'sdcard_a_state', name: 'SD Card A State'});
 			variables.push({variableId: 'sdcard_a_remaining', name: 'SD Card A Remaining'});
 			variables.push({variableId: 'sdcard_b_state', name: 'SD Card B State'});
@@ -85,6 +86,7 @@ module.exports = {
 					variableObj.battery_remaining = self.DATA?.Opower?.Obatt?.rtime || '';
 					variableObj.fullauto = self.DATA?.Ofullauto?.pv || '';
 					variableObj.rec = self.DATA?.rec || '';
+					variableObj.recmode = self.DATA?.Orecmode?.pv || '';
 					variableObj.rec_fmt = self.DATA?.recfmt || '';
 					variableObj.extrec = self.DATA?.extrec || '';
 					variableObj.tc = self.DATA?.tc || '';
