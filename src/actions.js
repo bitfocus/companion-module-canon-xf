@@ -35,6 +35,24 @@ module.exports = {
 				}
 			}
 
+			actions.aeshift_up = {
+				name: 'AE Up',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?aes=plus';
+					self.sendCommand(cmd);
+				}
+			}
+			
+			actions.aeshift_down = {
+				name: 'AE Down',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?aes=minus';
+					self.sendCommand(cmd);
+				}
+			}
+
 			actions.iris_set = {
 				name: 'Set Iris Value',
 				options: [
@@ -133,12 +151,12 @@ module.exports = {
 						id: 'level',
 						default: 'preset1',
 						choices: [
-							{ id: 'preset1', label: 'Preset 1' },
-							{ id: 'preset2', label: 'Preset 2' },
-							{ id: 'preset3', label: 'Preset 3' },
-							{ id: 'preset4', label: 'Preset 4' },
-							{ id: 'preset5', label: 'Preset 5' },
-							{ id: 'preset6', label: 'Preset 6' },
+							{ id: '1', label: 'Preset 1' },
+							{ id: '2', label: 'Preset 2' },
+							{ id: '3', label: 'Preset 3' },
+							{ id: '4', label: 'Preset 4' },
+							{ id: '5', label: 'Preset 5' },
+							{ id: '6', label: 'Preset 6' },
 						]
 					}
 				],
@@ -229,6 +247,24 @@ module.exports = {
 				}
 			}
 
+			actions.shutter_up = {
+				name: 'Shutter Up',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?shutter=plus';
+					self.sendCommand(cmd);
+				}
+			}
+			
+			actions.shutter_down = {
+				name: 'Shutter Down',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'drivelens?shutter=minus';
+					self.sendCommand(cmd);
+				}
+			}
+			
 			actions.nd_ud = {
 				name: 'ND Up/Down',
 				options: [
@@ -265,6 +301,27 @@ module.exports = {
 				],
 				callback: async function (action) {
 					let cmd = 'drivelens?ndv=' + action.options.function;
+					self.sendCommand(cmd);
+				}
+			}
+
+			actions.rec_mode = {
+				name: 'Select exposure mode',
+				options: [
+					{
+						type: 'dropdown',
+						id: 'mode',
+						default: 'manual',
+						choices: [
+							{ id: 'p', label: 'P' },
+							{ id: 'tv', label: 'Tv' },
+							{ id: 'av', label: 'Av' },
+							{ id: 'manual', label: 'M' },
+						],
+					},
+				],
+				callback: async function (action) {
+					let cmd = 'setprop?recmode=' + action.options.mode;
 					self.sendCommand(cmd);
 				}
 			}
@@ -322,6 +379,26 @@ module.exports = {
 					self.sendCommand(cmd);
 				}
 			}
+
+			
+			actions.set_wb_1 = {
+				name: 'Set AWB Custom Value 1',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'cmdwb?wbset=a';
+					self.sendCommand(cmd);
+				}
+			}
+
+			actions.set_wb_2 = {
+				name: 'Set AWB Custom Value 2',
+				options: [],
+				callback: async function (action) {
+					let cmd = 'cmdwb?wbset=b';
+					self.sendCommand(cmd);
+				}
+			}
+			
 			
 			actions.set_whitebalance = {
 				name: 'Set White Balance',
@@ -350,7 +427,7 @@ module.exports = {
 					self.sendCommand(cmd);
 				}
 			}
-			
+
 			actions.set_kelvin_wb = {
 				name: 'Set Kelvin Value',
 				options: [
@@ -364,6 +441,45 @@ module.exports = {
 				callback: async function (action) {
 					let cmd = 'setprop?wbvk=' + action.options.temperature;
 					self.sendCommand(cmd);
+				}
+			}
+
+			actions.wbkelvin_up = {
+				name: 'Kelvin Up',
+				options: [],
+				callback: async function (action) {
+					//determine the current Okelvin value and go up one step and then send that command
+					let current = self.DATA?.Owbinfo?.Okelvin?.kelvinvalue;
+					self.log('debug', 'current wb ' + current);
+					let index = self.kelvin_values.findIndex(x => x.id == current);
+					self.log('debug', 'current wb index ' + index);
+					self.log('debug', 'self.kelvin_values.length ' + self.kelvin_values.length);
+
+					if (index < self.kelvin_values.length - 1) {
+						self.log('debug', 'setting kelvin ' + self.kelvin_values[index + 1].id);
+
+						let cmd = 'setprop?wbvk=' + self.kelvin_values[index + 1].id;
+						self.sendCommand(cmd);
+					}
+				}
+			}
+
+			actions.wbkelvin_down = {
+				name: 'Kelvin Down',
+				options: [],
+				callback: async function (action) {
+					//determine the current Okelvin value and go up one step and then send that command
+					let current = self.DATA?.Owbinfo?.Okelvin?.kelvinvalue;
+					self.log('debug', 'current wb ' + current);
+					let index = self.kelvin_values.findIndex(x => x.id == current);
+					self.log('debug', 'current wb index ' + index);
+
+					if (index > 0) {
+						self.log('debug', 'setting kelvin ' + self.kelvin_values[index - 1].id);
+
+						let cmd = 'setprop?wbvk=' + self.kelvin_values[index - 1].id;
+						self.sendCommand(cmd);
+					}
 				}
 			}
 

@@ -13,6 +13,7 @@ module.exports = {
 			variables.push({variableId: 'rec_fmt', name: 'Recording Format'});
 			variables.push({variableId: 'extrec', name: 'Ext Recording'});
 			variables.push({variableId: 'tc', name: 'Timecode'});
+			variables.push({variableId: 'recmode', name: 'Expsure mode'});
 			variables.push({variableId: 'sdcard_a_state', name: 'SD Card A State'});
 			variables.push({variableId: 'sdcard_a_remaining', name: 'SD Card A Remaining'});
 			variables.push({variableId: 'sdcard_b_state', name: 'SD Card B State'});
@@ -79,8 +80,48 @@ module.exports = {
 		try {
 			if (self.DATA) {
 				let variableObj = {};
-
-				if (self.config.model == 'XF405' || self.config.model == 'XF705' || self.config.model == 'other') {
+				if (self.config.model == 'XF405') {
+					variableObj.camid = self.DATA?.camid || '';
+					variableObj.battery_percent = self.DATA?.Opower?.Obatt?.percent|| '';
+					variableObj.battery_remaining = self.DATA?.Opower?.Obatt?.rtime || '';
+					variableObj.fullauto = self.DATA?.Ofullauto?.pv || '';
+					variableObj.rec = self.DATA?.rec || '';
+					variableObj.recmode = self.DATA?.Orecmode?.pv || '';
+					variableObj.rec_fmt = self.DATA?.recfmt || '';
+					variableObj.extrec = self.DATA?.extrec || '';
+					variableObj.tc = self.DATA?.tc || '';
+					variableObj.sdcard_a_state = self.DATA?.Omedia?.Osda?.state || '';
+					variableObj.sdcard_a_remaining = self.DATA?.Omedia?.Osda?.rtime || '';
+					variableObj.sdcard_b_state = self.DATA?.Omedia?.Osdb?.state || '';
+					variableObj.sdcard_b_remaining = self.DATA?.Omedia?.Osdb?.rtime || '';
+					variableObj.wb_mode = self.DATA?.Owbinfo?.Omode?.pv || '';
+					variableObj.awb_kelvinvalue = self.DATA?.Owbinfo?.Oawb?.kelvinvalue || '';
+					variableObj.awb_ccvalue = self.DATA?.Owbinfo?.Oawb?.ccvalue || '';
+					variableObj.seta_kelvinvalue = self.DATA?.Owbinfo?.Oseta?.Ovalue?.kelvinvalue || '';
+					variableObj.seta_ccvalue = self.DATA?.Owbinfo?.Oseta?.Ovalue?.ccvalue || '';
+					variableObj.setb_kelvinvalue = self.DATA?.Owbinfo?.Osetb?.Ovalue?.kelvinvalue || '';
+					variableObj.setb_ccvalue = self.DATA?.Owbinfo?.Osetb?.Ovalue?.ccvalue || '';
+					variableObj.daylight_kelvinvalue = self.DATA?.Owbinfo?.Odaylight?.kelvinvalue || '';
+					variableObj.daylight_ccvalue = self.DATA?.Owbinfo?.Odaylight?.ccvalue || '';
+					variableObj.tungsten_kelvinvalue = self.DATA?.Owbinfo?.Otungsten?.kelvinvalue || '';
+					variableObj.tungsten_ccvalue = self.DATA?.Owbinfo?.Otungsten?.ccvalue || '';
+					variableObj.kelvinvalue = self.DATA?.Owbinfo?.Okelvin?.kelvinvalue || '';
+					variableObj.neutraldensity_value = self.DATA?.Ondinfo?.Ovalue?.pv || '';
+					variableObj.iris_mode = self.DATA?.Oiris?.Omode?.pv || '';
+					variableObj.iris_value = self.DATA?.Oirisinfo?.Ovalue?.pv || '';
+					variableObj.isogain_mode = self.DATA?.Oisogaininfo?.Omode?.pv || '';
+					variableObj.isogain_value = self.DATA?.Oisogaininfo?.Ovalue?.pv || '';
+					variableObj.shutter_mode = self.DATA?.Oshutter?.Omode?.pv || '';
+					variableObj.shutter_step = self.DATA?.Oshutter?.Ostep?.pv || '';
+					variableObj.shutter_value = self.DATA?.Oshutterinfo?.Ovalue?.pv || '';
+					variableObj.aeshift_value = self.DATA?.Oaesinfo?.Ovalue?.pv || '';
+					variableObj.afmode = self.DATA?.Ofocusinfo?.Oafmode?.pv || '';
+					variableObj.facedetection = self.DATA?.Ofocusinfo?.Ofacedat?.pv || '';
+					variableObj.focusguide = self.DATA?.Ofocusinfo?.Oguide?.pv || '';
+					variableObj.zoom_speed = self.DATA?.Ozoom?.speed || '';
+					variableObj.zoom_position = self.DATA?.Ozoom?.pos || '';
+				}
+				else if (self.config.model == 'XF705' || self.config.model == 'other') {
 					variableObj.camid = self.DATA?.camid || '';
 					variableObj.battery_percent = self.DATA?.Opower?.Obatt?.percent|| '';
 					variableObj.battery_remaining = self.DATA?.Opower?.Obatt?.rtime || '';
